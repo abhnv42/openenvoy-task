@@ -1,0 +1,27 @@
+{
+  "name": "openenvoy-task",
+  "version": "1.0.0",
+  "description": "Take home task for openenvoy interview",
+  "type": "module",
+  "main": "src/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhnv42/openenvoy-task.git"
+  },
+  "keywords": [
+    "javascript",
+    "node"
+  ],
+  "author": "abhnv42",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abhnv42/openenvoy-task/issues"
+  },
+  "homepage": "https://github.com/abhnv42/openenvoy-task#readme"
+}
