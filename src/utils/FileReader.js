@@ -4,7 +4,7 @@ import { readFile } from "node:fs/promises"
 
 /**
  * 
- * @param {string} filePath
+ * @param {URL} filePath
  * @returns {string}
  */
 export default async function readSourceFile(filePath) {
