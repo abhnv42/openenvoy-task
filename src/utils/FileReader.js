@@ -8,5 +8,6 @@ import { readFile } from "node:fs/promises"
  * @returns {string}
  */
 export default async function readSourceFile(filePath) {
-    return "string";
+    const data = await readFile(filePath, { encoding: 'utf-8' });
+    return data;
 }
