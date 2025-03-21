@@ -1,4 +1,9 @@
 export class LanguageCounter {
+
+    preprocess() {
+        throw new Error("Method not implemented");
+    }
+
     countLines() {
         throw new Error("Method not implemented");
     }
