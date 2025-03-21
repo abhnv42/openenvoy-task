@@ -1,7 +1,10 @@
 "use strict";
 
 import { readFile } from "node:fs/promises"
-import { FileNotFoundError } from "../errors/index.js";
+import { extname } from "node:path";
+
+import { FileNotFoundError, FileNotSupportedError } from "../errors/index.js";
+import CONFIG from '../../config/config.js'
 
 /**
  * 
@@ -11,6 +14,10 @@ import { FileNotFoundError } from "../errors/index.js";
 export default async function readSourceFile(filePath) {
     try {
         const data = await readFile(filePath, { encoding: 'utf-8' });
+
+        const extension = extname(filePath.toString());
+        if(!CONFIG.supportedExtensions.includes(extension)) throw new FileNotSupportedError(extension);
+
         return data;
     } catch(error) {
         if(error.code === "ENOENT") {
