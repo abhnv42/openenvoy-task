@@ -29,7 +29,7 @@ for(const [fileName, expected] of Object.entries(testFileMetaData)) {
         test("isComment should work correctly", async () => {
             const {data, extension} = await readSourceFile(filePath);
             const javaCounter = new JavaCounter(data, extension);
-            assert.equal(javaCounter.lines.filter(javaCounter.isComment).length, expected.comments);
+            assert.equal(javaCounter.lines.filter(line => javaCounter.isComment(line)).length, expected.comments);
         });
 
         test("isLoc should work correctly", async () => {
