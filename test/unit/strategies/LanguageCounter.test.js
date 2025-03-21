@@ -15,14 +15,14 @@ describe("LanguageCounter", () => {
     })
 
     test("count blank lines method should not be implemented", () => {
-        assert.throws(LanguageCounter.prototype.countBlankLines, { message: "Method not implemented" });
+        assert.throws(LanguageCounter.prototype.isBlankLine, { message: "Method not implemented" });
     })
 
     test("count comments method should not be implemented", () => {
-        assert.throws(LanguageCounter.prototype.countComments, { message: "Method not implemented" });
+        assert.throws(LanguageCounter.prototype.isComment, { message: "Method not implemented" });
     })
 
     test("count lines of code method should not be implemented", () => {
-        assert.throws(LanguageCounter.prototype.countLoc, { message: "Method not implemented" });
+        assert.throws(LanguageCounter.prototype.isLoc, { message: "Method not implemented" });
     })
 })
