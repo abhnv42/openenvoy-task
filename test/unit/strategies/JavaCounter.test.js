@@ -18,4 +18,10 @@ describe("JavaCounter", () => {
         assert.equal(javaCounter.lines.filter(line => line.match(/\n/g)).length, 0);
         assert.equal(javaCounter.lines.filter(line => line.match(/\t/g)).length, 0);
     });
+
+    test("isBlankLine should work correctly", async () => {
+        const data = await readSourceFile(filePath);
+        const javaCounter = new JavaCounter(data);
+        assert.equal(javaCounter.lines.filter(javaCounter.isBlankLine).length, 3);
+    });
 })
