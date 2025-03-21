@@ -40,6 +40,9 @@ describe("JavaCounter", () => {
     test("countLines should work correctly", async () => {
         const data = await readSourceFile(filePath);
         const javaCounter = new JavaCounter(data);
-        assert.deepEqual(javaCounter.countLines(), { comments: 3, blankLines: 3, loc: 6 });
+        const result = javaCounter.countLines();
+        assert.equal(result.blankLines, 3);
+        assert.equal(result.comments, 3);
+        assert.equal(result.loc, 6);
     });
 })
