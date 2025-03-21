@@ -1,6 +1,8 @@
 export default {
     supportedExtensions: [".java"],
     syntaxInfo: {
-        "java": {}
+        "java": {
+            commentRegex: /^\/\//
+        }
     }
 }
