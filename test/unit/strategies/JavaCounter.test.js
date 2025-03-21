@@ -20,7 +20,7 @@ for(const [fileName, expected] of Object.entries(testFileMetaData)) {
             assert.equal(javaCounter.lines.filter(line => line.match(/\t/g)).length, 0);
         });
 
-        test("isBlankLine should work correctly", {only: true}, async () => {
+        test("isBlankLine should work correctly", async () => {
             const data = await readSourceFile(filePath);
             const javaCounter = new JavaCounter(data);
             assert.equal(javaCounter.lines.filter(javaCounter.isBlankLine).length, expected.blankLines);
