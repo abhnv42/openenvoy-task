@@ -4,7 +4,7 @@ import readSourceFile from "../../../src/utils/FileReader.js";
 import { describe, test } from "node:test";
 import { strict as assert } from "node:assert";
 
-const filePath = new URL('../../sourceFiles/example.source.java', import.meta.url);
+let filePath = new URL('../../sourceFiles/example.source.java', import.meta.url);
 
 describe("File Reader Tests", () => {
     test('successfully read a file', async () => {
@@ -17,7 +17,7 @@ describe("File Reader Tests", () => {
     });
 
     test('should throw an error if filePath is invalid', async () => {
-        const filePath = "";
+        filePath = "";
         assert.rejects(readSourceFile(filePath), { message: `File not found: ${filePath}` });
     })
 });
