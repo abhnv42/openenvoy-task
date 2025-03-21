@@ -1,3 +1,4 @@
+import config from "../../config/config.js";
 import { LanguageCounter } from "./LanguageCounter.js"
 
 export class JavaCounter extends LanguageCounter {
@@ -15,5 +16,9 @@ export class JavaCounter extends LanguageCounter {
 
     isBlankLine(line) {
         return line.length === 0;
+    }
+
+    isComment(line) {
+        return line.match(config.syntaxInfo.java.commentRegex)
     }
 }
