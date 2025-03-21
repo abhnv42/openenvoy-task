@@ -30,4 +30,10 @@ describe("JavaCounter", () => {
         const javaCounter = new JavaCounter(data);
         assert.equal(javaCounter.lines.filter(javaCounter.isComment).length, 3);
     });
+
+    test("isLoc should work correctly", async () => {
+        const data = await readSourceFile(filePath);
+        const javaCounter = new JavaCounter(data);
+        assert.equal(javaCounter.lines.filter(javaCounter.isLoc).length, 6);
+    });
 })
