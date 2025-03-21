@@ -13,7 +13,7 @@ for(const [fileName, expected] of Object.entries(testFileMetaData)) {
         });
 
         test("preprocess should work correctly", async () => {
-            const data = await readSourceFile(filePath);
+            const {data} = await readSourceFile(filePath);
             const javaCounter = new JavaCounter(data);
             assert.ok(Array.isArray(javaCounter.lines));
             assert.equal(javaCounter.lines.filter(line => line.match(/\n/g)).length, 0);
@@ -21,25 +21,25 @@ for(const [fileName, expected] of Object.entries(testFileMetaData)) {
         });
 
         test("isBlankLine should work correctly", async () => {
-            const data = await readSourceFile(filePath);
+            const {data} = await readSourceFile(filePath);
             const javaCounter = new JavaCounter(data);
             assert.equal(javaCounter.lines.filter(javaCounter.isBlankLine).length, expected.blankLines);
         });
 
         test("isComment should work correctly", async () => {
-            const data = await readSourceFile(filePath);
+            const {data} = await readSourceFile(filePath);
             const javaCounter = new JavaCounter(data);
             assert.equal(javaCounter.lines.filter(javaCounter.isComment).length, expected.comments);
         });
 
         test("isLoc should work correctly", async () => {
-            const data = await readSourceFile(filePath);
+            const {data} = await readSourceFile(filePath);
             const javaCounter = new JavaCounter(data);
             assert.equal(javaCounter.lines.filter(line => javaCounter.isLoc(line)).length, expected.loc);
         });
 
         test("countLines should work correctly", async () => {
-            const data = await readSourceFile(filePath);
+            const {data} = await readSourceFile(filePath);
             const javaCounter = new JavaCounter(data);
             const result = javaCounter.countLines();
             assert.equal(result.blankLines, expected.blankLines);

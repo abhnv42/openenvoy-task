@@ -13,7 +13,7 @@ describe("File Reader Tests", () => {
     });
 
     test('file data should be a string', async () => {
-        const data = await readSourceFile(filePath);
+        const { data } = await readSourceFile(filePath);
         assert.strictEqual(typeof data, "string");
     });
 
