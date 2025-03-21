@@ -21,9 +21,9 @@ export class LanguageCounter {
 
         for(let i = 0; i < this.lines.length; i++) {
             const currentLine = this.lines[i];
-            if(this.isBlankLine(currentLine)) ++blankLines;
-            if(this.isComment(currentLine)) ++comments;
-            if(this.isLoc(currentLine)) ++loc;
+            if(this.isBlankLine(currentLine)) ++blankLines
+            else if(this.isComment(currentLine)) ++comments
+            else if(this.isLoc(currentLine)) ++loc;
         }
 
         return {blankLines, comments, loc};
