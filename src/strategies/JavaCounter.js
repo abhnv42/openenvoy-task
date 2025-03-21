@@ -2,9 +2,10 @@ import config from "../../config/config.js";
 import { LanguageCounter } from "./LanguageCounter.js"
 
 export class JavaCounter extends LanguageCounter {
-    constructor(fileData) {
+    constructor(fileData, extension) {
         super();
         this.originalData = fileData;
+        this.extension = extension.split(".").join("");
         this.lines = this.preprocess(fileData);
     }
 
