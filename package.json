@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Take home task for openenvoy interview",
   "type": "module",
-  "main": "src/index.js",
+  "main": "src/Counter.js",
   "directories": {
     "test": "test"
   },
