@@ -20,8 +20,7 @@ describe("File Reader Tests", () => {
     test('should throw an error if filePath is invalid', async () => {filePath
         const pathForThisTest = new URL('file:///this/does/not/exist');
         await assert.rejects(readSourceFile(pathForThisTest), { message: `File not found: ${pathForThisTest.toString()}` });
-    })
-
+    });
 
     test('should throw an error if provided file is unsupported', async () => {
         const pathForThisTest = new URL("../../sourceFiles/example.source.js", import.meta.url);
@@ -29,5 +28,5 @@ describe("File Reader Tests", () => {
             readSourceFile(pathForThisTest),
             { message: `File extension not supported: ${extname(pathForThisTest.toString())}`}
         );
-    })
+    });
 });
