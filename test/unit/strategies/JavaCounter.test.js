@@ -34,6 +34,6 @@ describe("JavaCounter", () => {
     test("isLoc should work correctly", async () => {
         const data = await readSourceFile(filePath);
         const javaCounter = new JavaCounter(data);
-        assert.equal(javaCounter.lines.filter(javaCounter.isLoc).length, 6);
+        assert.equal(javaCounter.lines.filter(line => javaCounter.isLoc(line)).length, 6);
     });
 })
