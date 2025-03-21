@@ -12,4 +12,8 @@ export class JavaCounter extends LanguageCounter {
             .split("\n")
             .map(line => line.replace(/\t/g, "").trim());
     }
+
+    isBlankLine(line) {
+        return line.length === 0;
+    }
 }
