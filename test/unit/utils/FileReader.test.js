@@ -17,6 +17,7 @@ describe("File Reader Tests", () => {
     });
 
     test('should throw an error if filePath is invalid', async () => {
-        assert.rejects(readSourceFile(""), { message: "Invalid file path" });
+        const filePath = "";
+        assert.rejects(readSourceFile(filePath), { message: `File not found: ${filePath}` });
     })
 });
