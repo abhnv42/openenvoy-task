@@ -8,6 +8,21 @@ export class JavaCounter extends LanguageCounter {
         this.lines = this.preprocess(fileData);
     }
 
+    countLines() {
+        let comments = 0;
+        let blankLines = 0;
+        let loc = 0;
+
+        for(let i = 0; i < this.lines.length; i++) {
+            const currentLine = this.lines[i];
+            if(this.isBlankLine(currentLine)) ++blankLines;
+            if(this.isComment(currentLine)) ++comments;
+            if(this.isLoc(currentLine)) ++loc;
+        }
+
+        return {blankLines, comments, loc};
+    }
+
     preprocess(data) {
         return data
             .split("\n")
