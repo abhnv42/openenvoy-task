@@ -7,7 +7,7 @@ const javaFilePath = new URL("../../sourceFiles/example.source.java", import.met
 
 describe("Counter", () => {
     test("get correct counter based on file extension", async () => {
-        const counter = new Counter(javaFilePath);
-        assert(counter.language, "java");
+        const counter = await Counter.getCounter(javaFilePath);
+        assert(counter.extension, ".java");
     });
 })
