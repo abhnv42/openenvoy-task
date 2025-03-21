@@ -1,11 +1,11 @@
 "use strict";
 import readSourceFile from "../../../src/utils/FileReader.js";
-import * as CONFIG from "../../../config/config.js"
+import { extname } from "node:path";
 
 import { describe, test } from "node:test";
 import { strict as assert } from "node:assert";
 
-let filePath = new URL('../../sourceFiles/example.source.java', import.meta.url);
+const filePath = new URL('../../sourceFiles/example.source.java', import.meta.url);
 
 describe("File Reader Tests", () => {
     test('successfully read a file', async () => {
@@ -18,13 +18,16 @@ describe("File Reader Tests", () => {
     });
 
     test('should throw an error if filePath is invalid', async () => {filePath
-        filePath = "";
-        assert.rejects(readSourceFile(filePath), { message: `File not found: ${filePath}` });
+        const pathForThisTest = new URL('file:///this/does/not/exist');
+        await assert.rejects(readSourceFile(pathForThisTest), { message: `File not found: ${pathForThisTest.toString()}` });
     })
 
+
     test('should throw an error if provided file is unsupported', async () => {
-        filePath = new URL("../../sourceFiles/example.source.js", import.meta.url);
-        const extension = filePath.toString().match(CONFIG.extension);
-        assert.rejects(readSourceFile(filePath), { message: `Extension not supported: ${extension}` });
+        const pathForThisTest = new URL("../../sourceFiles/example.source.js", import.meta.url);
+        await assert.rejects(
+            readSourceFile(pathForThisTest),
+            { message: `File extension not supported: ${extname(pathForThisTest.toString())}`}
+        );
     })
 });
