@@ -10,6 +10,10 @@ describe("LanguageCounter", () => {
         assert.ok(LanguageCounter);
     });
 
+    test("preprocess method should not be implemented", () => {
+        assert.throws(LanguageCounter.prototype.preprocess, { message: "Method not implemented" });
+    })
+
     test("count lines method should not be implemented", () => {
         assert.throws(LanguageCounter.prototype.countLines, { message: "Method not implemented" });
     })
