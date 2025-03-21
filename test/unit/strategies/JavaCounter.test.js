@@ -15,5 +15,7 @@ describe("JavaCounter", () => {
         const data = await readSourceFile(filePath);
         const javaCounter = new JavaCounter(data);
         assert.ok(Array.isArray(javaCounter.lines));
-    })
+        assert.equal(javaCounter.lines.filter(line => line.match(/\n/g)).length, 0);
+        assert.equal(javaCounter.lines.filter(line => line.match(/\t/g)).length, 0);
+    });
 })
