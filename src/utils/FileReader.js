@@ -18,7 +18,7 @@ export default async function readSourceFile(filePath) {
         const extension = extname(filePath.toString());
         if(!CONFIG.supportedExtensions.includes(extension)) throw new FileNotSupportedError(extension);
 
-        return data;
+        return {data, extension};
     } catch(error) {
         if(error.code === "ENOENT") {
             throw new FileNotFoundError(filePath);
