@@ -13,4 +13,16 @@ describe("LanguageCounter tests", () => {
     test("count lines method should not be implemented", () => {
         assert.throws(LanguageCounter.prototype.countLines, { message: "Method not implemented" });
     })
+
+    test("count blank lines method should not be implemented", () => {
+        assert.throws(LanguageCounter.prototype.countBlankLines, { message: "Method not implemented" });
+    })
+
+    test("count comments method should not be implemented", () => {
+        assert.throws(LanguageCounter.prototype.countComments, { message: "Method not implemented" });
+    })
+
+    test("count lines of code method should not be implemented", () => {
+        assert.throws(LanguageCounter.prototype.countLoc, { message: "Method not implemented" });
+    })
 })
