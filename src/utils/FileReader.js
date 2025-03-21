@@ -1,6 +1,7 @@
 "use strict";
 
 import { readFile } from "node:fs/promises"
+import { FileNotFoundError } from "../errors/index.js";
 
 /**
  * 
@@ -8,6 +9,14 @@ import { readFile } from "node:fs/promises"
  * @returns {string}
  */
 export default async function readSourceFile(filePath) {
-    const data = await readFile(filePath, { encoding: 'utf-8' });
-    return data;
+    try {
+        const data = await readFile(filePath, { encoding: 'utf-8' });
+        return data;
+    } catch(error) {
+        if(error.code === "ENOENT") {
+            throw new FileNotFoundError(filePath);
+        }
+        throw error;
+    }
+    
 }
