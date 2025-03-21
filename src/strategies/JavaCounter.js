@@ -21,4 +21,8 @@ export class JavaCounter extends LanguageCounter {
     isComment(line) {
         return line.match(config.syntaxInfo.java.commentRegex)
     }
+
+    isLoc(line) {
+        return !this.isBlankLine(line) && !this.isComment(line);
+    }
 }
