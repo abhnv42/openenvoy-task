@@ -42,9 +42,10 @@ for(const [fileName, expected] of Object.entries(testFileMetaData)) {
             const {data, extension} = await readSourceFile(filePath);
             const javaCounter = new JavaCounter(data, extension);
             const result = javaCounter.countLines();
-            assert.equal(result.blankLines, expected.blankLines);
-            assert.equal(result.comments, expected.comments);
-            assert.equal(result.loc, expected.loc);
+            assert.equal(result.Blank, expected.blankLines);
+            assert.equal(result.Comments, expected.comments);
+            assert.equal(result.Code, expected.loc);
+            assert.equal(result.Total, expected.total);
         });
     })
 }

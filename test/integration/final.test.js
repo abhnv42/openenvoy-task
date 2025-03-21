@@ -17,9 +17,11 @@ for(const fileName of supportedFiles) {
             const counter = await Counter.getCounter(filePath);
             const result = counter.countLines();
 
-            assert.equal(result.blankLines, expected.blankLines);
-            assert.equal(result.comments, expected.comments);
-            assert.equal(result.loc, expected.loc);
+            assert.equal(result.Blank, expected.blankLines);
+            assert.equal(result.Comments, expected.comments);
+            assert.equal(result.Code, expected.loc);
+            assert.equal(result.Total, expected.total);
+
         })
     });
 }
