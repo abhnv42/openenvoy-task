@@ -9,4 +9,8 @@ describe("LanguageCounter tests", () => {
     test("LanguageCounter exists", () => {
         assert.ok(LanguageCounter);
     });
+
+    test("count lines method should not be implemented", () => {
+        assert.throws(LanguageCounter.prototype.countLines, { message: "Method not implemented" });
+    })
 })
