@@ -3,15 +3,15 @@ export class LanguageCounter {
         throw new Error("Method not implemented");
     }
 
-    countBlankLines() {
+    isBlankLine() {
         throw new Error("Method not implemented");
     }
 
-    countComments() {
+    isComment() {
         throw new Error("Method not implemented");
     }
 
-    countLoc() {
+    isLoc() {
         throw new Error("Method not implemented");
     }
 }
