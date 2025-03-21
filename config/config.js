@@ -1,6 +1,5 @@
 export default {
-    supportedExtensions: ["java"],
-    getFileExtension: /(?<=\.)(.+)/,
+    supportedExtensions: [".java"],
     syntaxInfo: {
         "java": {}
     }
