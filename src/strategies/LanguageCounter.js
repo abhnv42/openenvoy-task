@@ -18,6 +18,7 @@ export class LanguageCounter {
         let comments = 0;
         let blankLines = 0;
         let loc = 0;
+        let total = this.lines.length;
 
         for(let i = 0; i < this.lines.length; i++) {
             const currentLine = this.lines[i];
@@ -26,7 +27,12 @@ export class LanguageCounter {
             else if(this.isLoc(currentLine)) ++loc;
         }
 
-        return {blankLines, comments, loc};
+        return {
+            Blank: blankLines,
+            Comments: comments,
+            Code: loc,
+            Total: total
+        };
     }
 
     isBlankLine(line) {
