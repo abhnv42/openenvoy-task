@@ -1,6 +1,6 @@
 {
   "name": "openenvoy-task",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Take home task for openenvoy interview",
   "type": "module",
   "main": "src/Counter.js",
@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test:unit": "node --test 'test/unit/**/*.test.js'",
-    "test:integration": "node --test 'test/integration*/*.test.js'",
+    "test:integration": "node --test 'test/integration/*.test.js'",
     "test": "node --test 'test/**/*.test.js'"
   },
   "repository": {
