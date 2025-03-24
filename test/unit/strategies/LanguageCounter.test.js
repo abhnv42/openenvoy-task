@@ -10,23 +10,23 @@ describe("LanguageCounter", () => {
         assert.ok(LanguageCounter);
     });
 
-    test("preprocess method should not be implemented", () => {
+    test("preprocess method should be implemented", () => {
         assert.ok(LanguageCounter.prototype.preprocess);
     })
 
-    test("count lines method should not be implemented", () => {
+    test("count lines method should be implemented", () => {
         assert.ok(LanguageCounter.prototype.countLines);
     })
 
-    test("count blank lines method should not be implemented", () => {
+    test("count blank lines method should be implemented", () => {
         assert.ok(LanguageCounter.prototype.isBlankLine);
     })
 
-    test("count comments method should not be implemented", () => {
+    test("count comments method should be implemented", () => {
         assert.ok(LanguageCounter.prototype.isComment);
     })
 
-    test("count lines of code method should not be implemented", () => {
+    test("count lines of code method should be implemented", () => {
         assert.ok(LanguageCounter.prototype.isLoc);
     })
 })
